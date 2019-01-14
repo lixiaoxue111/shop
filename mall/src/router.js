@@ -4,8 +4,11 @@ import Home from './views/Home.vue'
 import Classify from './views/Classify.vue'
 import Cart from './views/Cart.vue'
 import User from './views/User.vue'
+import Detail from './views/Detail.vue'
+import FooterBar from './components/FooterBar.vue'
+import Error from './views/Error.vue'
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   mode: 'history',
@@ -14,22 +17,47 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      //component: Home
+        components:{
+          default:Home,
+            'footer-bar':FooterBar
+        }
     },
     {
       path: '/classify',
       name: 'classify',
-      component: Classify
+      //component: Classify
+        components:{
+            default:Classify,
+            'footer-bar':FooterBar
+        }
     },
       {
           path: '/cart',
           name: 'cart',
-          component: Cart
+          // component: Cart
+          components:{
+              default:Cart,
+              'footer-bar':FooterBar
+          }
       },
       {
           path: '/user',
           name: 'user',
-          component: User
+           //component: User
+          components:{
+              default:User,
+              'footer-bar':FooterBar
+          }
+      },
+      {
+          path:'/detail/:id',
+          name:'detail',
+          component:Detail
+      },
+      {
+          path:'*',
+          component:Error
       }
   ]
 })
