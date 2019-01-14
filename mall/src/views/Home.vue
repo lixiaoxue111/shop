@@ -4,7 +4,9 @@
     <van-nav-bar title="首页" class="nav-title">
       <van-icon name="search" slot="left"></van-icon>
       <!--<van-icon name="cart-o" slot="right"></van-icon>-->
-      <van-icon @click="$router.push('/user')" slot="right">{{userInfo.userName}}</van-icon>
+      <van-icon @click="$router.push('/user')" slot="right">
+        {{JSON.stringify(userInfo) === '{}' ? '未登录':userInfo.userName}}
+      </van-icon>
     </van-nav-bar>
     <!--轮播图-->
     <div class="carousel">
@@ -50,6 +52,7 @@ import {mapState} from 'vuex';
 export default {
     data(){
         return {
+            //轮播图
             carouselItem:[
                 {
                     name: "img1",
@@ -65,7 +68,7 @@ export default {
                 }
             ],
             //热门商品
-            hotProducts: [// 热门商品
+            hotProducts: [
                 {
                     name: "   汽油动力手推割杆机 养殖场专用青储割晒机",
                     img:
@@ -183,7 +186,7 @@ export default {
             swiperOption: {
                 slidesPerView: 3
             },
-            // 推荐商品，用mock模拟
+            // 推荐商品，用mock模拟数据
             varietyItem:[]
         }
     },
@@ -203,7 +206,7 @@ export default {
     }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
   .container{
     background: #eee;
   }
