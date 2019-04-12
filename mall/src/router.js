@@ -21,7 +21,9 @@ export default new Router({
         components:{
           default:Home,
             'footer-bar':FooterBar
-        }
+        },
+       meta:{
+       keepAlive:true;
     },
     {
       path: '/classify',
@@ -30,7 +32,9 @@ export default new Router({
         components:{
             default:Classify,
             'footer-bar':FooterBar
-        }
+        },
+      meta:{
+     keepAlive:true;
     },
       {
           path: '/cart',
@@ -48,7 +52,9 @@ export default new Router({
           components:{
               default:User,
               'footer-bar':FooterBar
-          }
+          },
+         meta:{
+         keepAlive:true;
       },
       {
           path:'/detail/:id',
